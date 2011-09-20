@@ -18,8 +18,8 @@ public final class DNSConstants {
     public static final int    MDNS_PORT                      = Integer.parseInt(System.getProperty("net.mdns.port", "5353"));
     public static final int    DNS_PORT                       = 53;
 
-    // DNS Records Expiration Time in Seconds
-    public static final int    DNS_TTL                        = 25;
+    // One hour expiration time 
+    public static final int    DNS_TTL                        = 60 * 60;
 
     public static final int    MAX_MSG_TYPICAL                = 1460;
     public static final int    MAX_MSG_ABSOLUTE               = 8972;

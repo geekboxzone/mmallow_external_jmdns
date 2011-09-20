@@ -54,7 +54,10 @@ public class Renewer extends DNSStateTask {
     @Override
     public void start(Timer timer) {
         if (!this.getDns().isCanceling() && !this.getDns().isCanceled()) {
-            timer.schedule(this, DNSConstants.ANNOUNCED_RENEWAL_TTL_INTERVAL, DNSConstants.ANNOUNCED_RENEWAL_TTL_INTERVAL);
+            // BEGIN android-changed
+            // Schedule the renewer based on this task's TTL, not the default TTL
+            timer.schedule(this, getTTL() * 500, getTTL() * 500);
+            // END android-changed
         }
     }
 
